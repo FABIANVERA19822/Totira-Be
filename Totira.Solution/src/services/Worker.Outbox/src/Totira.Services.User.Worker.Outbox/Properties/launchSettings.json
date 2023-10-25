@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Totira.Services.User.Worker.Outbox": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
