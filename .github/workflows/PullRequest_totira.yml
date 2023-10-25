@@ -1,0 +1,61 @@
+name: PullRequest_totira
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+
+jobs:
+  test-and-code-analyzer:
+    runs-on: windows-latest
+    steps:
+      
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+         dotnet-version: '7.0.400'
+
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Run a one-line script
+        run:  '& "$(vswhere -property installationPath)\Common7\IDE\MSTest.exe" /help'
+
+      - name: Test UsersvcController
+        shell: pwsh
+        run: dotnet test .\Totira.Solution\src\testing\Test.Service.UserService\Test.Services.UserService.csproj
+
+      - name: Test Usersvc
+        shell: pwsh
+        run: dotnet test .\Totira.Solution\src\testing\Test.UserService\Test.UserService.csproj
+
+      - name: Test Propertiessvc
+        shell: pwsh
+        run: dotnet test .\Totira.Solution\src\testing\Test.PropertiesService\Test.PropertiesService.csproj
+
+      - name: Test Rootsvc
+        shell: pwsh
+        run: dotnet test .\Totira.Solution\src\testing\Test.RootService\Test.Services.RootService.csproj
+
+      - name: Test ThridPartyIntegrationService
+        shell: pwsh
+        run: dotnet test .\Totira.Solution\src\testing\Test.ThirdPartyIntegrationService\Test.ThirdPartyIntegrationService.csproj
+ 
+
+#      - name: Install Roslyn Analyzers
+#        run: dotnet tool install --global Microsoft.CodeAnalysis.FxCopAnalyzers --version 3.3.1
+
+#      - name: Run Code Analysis
+#        run: dotnet build --configuration Release /p:ReportAnalyzedFiles=true
+
+#      - name: Upload Analysis Results
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: analysis-results
+#          path: |
+#            **/bin/Release/netcoreapp3.1/*.xml
+#

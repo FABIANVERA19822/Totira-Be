@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  totira.services.rootservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS;http://+:80
+    ports:
+      - "80"      
+    
+  totira.services.tenantservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80"      

@@ -1,0 +1,6 @@
+version: "2"
+authtoken: 2QqV1y61mJkWD6pyMNwYPKASw3U_7zPSXY5rnTvbBmWDQNRgC
+tunnels:
+  httpbin:
+    proto: http
+    addr: Totira.Services.RootService:80    

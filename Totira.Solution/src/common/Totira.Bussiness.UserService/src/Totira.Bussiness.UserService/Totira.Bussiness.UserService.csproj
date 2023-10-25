@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repositories\FileFolder\**" />
+    <EmbeddedResource Remove="Repositories\FileFolder\**" />
+    <None Remove="Repositories\FileFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Api\src\Totira.Support.Api\Totira.Support.Api.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Application\src\Totira.Support.Application\Totira.Support.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.CommonLibrary\src\Totira.Support.CommonLibrary\Totira.Support.CommonLibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.EventServiceBus\src\Totira.Support.EventServiceBus\Totira.Support.EventServiceBus.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Otp\Totira.Support.Otp.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Persistance.Mongo\scr\Totira.Support.Persistance.Mongo\Totira.Support.Persistance.Mongo.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.ThirdPartyIntegration\Totira.Support.ThirdPartyIntegration.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.TransactionalOutbox\src\Totira.Support.TransactionalOutbox\Totira.Support.TransactionalOutbox.csproj" />
+    <ProjectReference Include="..\..\..\Totira.Bussiness.PropertiesService.Domain\src\Totira.Bussiness.PropertiesService.Domain\Totira.Bussiness.PropertiesService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Totira.Bussiness.UserService.Domain\scr\Totira.Bussiness.UserService.Domain\Totira.Bussiness.UserService.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LanguageExt.Core" Version="4.4.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="EmailTemplates\EmailTemplateResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EmailTemplateResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="EmailTemplates\EmailTemplateResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailTemplateResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Queries\NewFolder\" />
+  </ItemGroup>
+
+</Project>

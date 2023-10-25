@@ -1,0 +1,21 @@
+﻿namespace Totira.Services.RootService.DTO.Common;
+
+public class FileInfoDto
+{
+    public FileInfoDto(IFormFile file)
+    {
+        using var ms = new MemoryStream();
+        
+        file.CopyTo(ms);
+
+        FileName = file.FileName;
+        Length = file.Length;
+        ContentType = file.ContentType;
+        Data = ms.ToArray();
+    }
+
+    public string FileName { get; set; }
+    public long Length { get; set; }
+    public string ContentType { get; set; }
+    public byte[] Data { get; set; }
+}
