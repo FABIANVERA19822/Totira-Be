@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "totira.services.propertiesservice": "StartDebugging",
+        "totira.services.thirdpartyintegrationservice": "StartDebugging",
+        "totira.services.rootservice": "StartDebugging",
+        "totira.services.tenantservice": "StartDebugging",
+        "totira.services.user.worker.outbox": "StartDebugging",
+        "totira.services.userservice": "StartDebugging"
+      }
+    }
+  }
+}

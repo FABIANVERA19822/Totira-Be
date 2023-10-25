@@ -1,0 +1,86 @@
+name: ghactions-thirdpartyworkeroutboxsvc-imagetag-dev
+
+on:
+  push:
+    branches:
+      - develop
+
+    paths:
+      - 'Totira.Solution/src/support/Totira.Support.Api/src/Totira.Support.Api/**'
+      - 'Totira.Solution/src/support/Totira.Support.Resilience/src/Totira.Support.Resilience/**'
+      - 'Totira.Solution/src/support/Totira.Support.EventServiceBus.RabittMQ/src/Totira.Support.EventServiceBus.RabittMQ/**'
+      - 'Totira.Solution/src/support/Totira.Support.Application/src/Totira.Support.Application/**'
+      - 'Totira.Solution/src/support/Totira.Support.Resilience.Polly/src/Totira.Support.Resilience.Polly/**'
+      - 'Totira.Solution/src/services/Worker.Thirdparty/src/Totira.Services.Thirdparty.Worker.Outbox/**'
+env:
+  ECRREPOSITORY: ${{ secrets.ECRREPOSITORY_THIRDPARTYWORKEROUTBOXSVC }}  # # ecr-totira-thirdpartyworkeroutboxsvc-development,ecr-totira-thirdpartyworkeroutboxsvc-quality
+  ECRREGISTRY: ${{ secrets.ECRREGISTRY }}  # "153169536464.dkr.ecr.us-east-1.amazonaws.com"
+  DOCKER_BUILDKIT: ${{ secrets.DOCKER_BUILDKIT }} #1
+  AWS_REGION: ${{ secrets.AWS_REGION }} # "us-east-1"
+  ENVSHORTNAME: ${{ secrets.ENV_SHORT_NAME }} # dev,qa,main
+  ENVFULLNAME: ${{ secrets.ENV_FULL_NAME }} #development, quality
+  NAMESPACE: ${{ secrets.NAMESPACE }} # ns-totira-dev, ns-totira-qa
+
+
+jobs:
+  build-and-push-dev:
+    if: ${{ github.base_ref }} == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Generate SemVer
+        id: semver
+        run: |
+          echo "::set-output name=SEMVER::1.0"
+      - name: Generate build ID
+        id: prep
+        run: |
+            sha=${GITHUB_SHA::8}
+            ts=$(date +%s%3N)
+            echo "::set-output name=BUILD_ID::totira-${{ secrets.ENV_SHORT_NAME }}-thirdpartyworkeroutboxsvc-${{ steps.semver.outputs.SEMVER }}.${ts}"
+
+      - name: Build and tag Docker image
+        run: docker build -f services/Worker.Thirdparty/src/Totira.Services.Thirdparty.Worker.Outbox/Dockerfile --tag ${{ env.ECRREGISTRY }}/${{ env.ECRREPOSITORY }}:${{ env.BUILD_ID }} .
+        working-directory: Totira.Solution/src/
+        env:
+          BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}
+          ECRREGISTRY: ${{ env.ECRREGISTRY }}
+          ECRREPOSITORY: ${{ env.ECRREPOSITORY }}
+
+      - name: Get ECR credentials from Kubernetes secret
+        run: |
+          username=$(kubectl get secret ecr-credentials -n ${{ secrets.NAMESPACE }} -o=jsonpath='{.data.docker-username}' | base64 -d)
+          password=$(kubectl get secret ecr-credentials -n ${{ secrets.NAMESPACE }} -o=jsonpath='{.data.docker-password}' | base64 -d)
+          echo "::set-output name=USERNAME::$username"
+          echo "::set-output name=PASSWORD::$password"
+        id: get-credentials
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          registry: ${{ env.ECRREGISTRY }}
+          region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.ECR_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.ECR_AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.ECR_AWS_SESSION_TOKEN }}
+          username: ${{ steps.get-credentials.outputs.USERNAME }}
+          password: ${{ steps.get-credentials.outputs.PASSWORD }}
+
+      - name: Push Docker image to Amazon ECR
+        run: |
+          docker push ${{ env.ECRREGISTRY }}/${{ env.ECRREPOSITORY }}:${{ env.BUILD_ID }}
+        env:
+          ECRREGISTRY: ${{ env.ECRREGISTRY }}
+          ECRREPOSITORY: ${{ env.ECRREPOSITORY }}
+          BUILD_ID: ${{ steps.prep.outputs.BUILD_ID }}

@@ -1,0 +1,32 @@
+#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["services/mainServices/src/Totira.Services.RootService/Totira.Services.RootService.csproj", "services/mainServices/src/Totira.Services.RootService/"]
+COPY ["support/Totira.Support.Api/src/Totira.Support.Api/Totira.Support.Api.csproj", "support/Totira.Support.Api/src/Totira.Support.Api/"]
+COPY ["support/Totira.Support.Resilience/src/Totira.Support.Resilience/Totira.Support.Resilience.csproj", "support/Totira.Support.Resilience/src/Totira.Support.Resilience/"]
+COPY ["support/Totira.Support.CommonLibrary/src/Totira.Support.CommonLibrary/Totira.Support.CommonLibrary.csproj", "support/Totira.Support.CommonLibrary/src/Totira.Support.CommonLibrary/"]
+COPY ["support/Totira.Support.EventServiceBus.RabittMQ/src/Totira.Support.EventServiceBus.RabittMQ/Totira.Support.EventServiceBus.RabittMQ.csproj", "support/Totira.Support.EventServiceBus.RabittMQ/src/Totira.Support.EventServiceBus.RabittMQ/"]
+COPY ["support/Totira.Support.EventServiceBus/src/Totira.Support.EventServiceBus/Totira.Support.EventServiceBus.csproj", "support/Totira.Support.EventServiceBus/src/Totira.Support.EventServiceBus/"]
+COPY ["support/Totira.Support.Application/src/Totira.Support.Application/Totira.Support.Application.csproj", "support/Totira.Support.Application/src/Totira.Support.Application/"]
+COPY ["support/Totira.Support.NotificationHub.SignalR/src/Totira.Support.NotificationHub.SignalR/Totira.Support.NotificationHub.SignalR.csproj", "support/Totira.Support.NotificationHub.SignalR/src/Totira.Support.NotificationHub.SignalR/"]
+COPY ["support/Totira.Support.NotificationHub/src/Totira.Support.NotificationHub/Totira.Support.NotificationHub.csproj", "support/Totira.Support.NotificationHub/src/Totira.Support.NotificationHub/"]
+COPY ["support/Totira.Support.Resilience.Polly/src/Totira.Support.Resilience.Polly/Totira.Support.Resilience.Polly.csproj", "support/Totira.Support.Resilience.Polly/src/Totira.Support.Resilience.Polly/"]
+COPY ["support/Totira.Support.ThirdPartyIntegration/Totira.Support.ThirdPartyIntegration.csproj", "support/Totira.Support.ThirdPartyIntegration/"]
+RUN dotnet restore "services/mainServices/src/Totira.Services.RootService/Totira.Services.RootService.csproj"
+COPY . .
+WORKDIR "/src/services/mainServices/src/Totira.Services.RootService"
+RUN dotnet build "Totira.Services.RootService.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Totira.Services.RootService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Totira.Services.RootService.dll"]  
