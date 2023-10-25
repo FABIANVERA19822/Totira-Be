@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GroupApplicationProfileSharingTemplate" xml:space="preserve">
+    <value>&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;&lt;link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"&gt;&lt;title&gt;mail&lt;/title&gt;&lt;style&gt;.fredoka-font{font-family:sans-serif}.center-text{text-align:center}.lato-font{font-family:Lato}.large-font{font-size:28px;line-height:36px}.regular-font{font-size:20px;line-height:24px}.small-font{font-size:14px;line-height:20px}.email-template{width:700px;background:#fff}.header{background:#0e2c6c;padding:32px 64px}.content{padding:32px 69.5px}.content .h2{color:#0e2c6c;font-size:28px;font-family:sans-serif}.message{margin:40px 0 24px;color:#28293d}.address{padding:8px 24px;background:#f7f7fd;border-radius:8px;width:257px;height:fit-content;color:#28293d;text-align:center;margin:0 auto;font-size:22px;position:relative}.address p{margin:0;line-height:44px}.rest-assured{margin:24px 0 40px;color:#28293d;line-height:40px}.code-access{padding:32px;background:#f7f7fd;border-radius:8px}.group-tenant{text-align:center}.tenant{display:inline-block;margin:0 17px}.code{margin:16px 0;color:#0c6dff;margin-bottom:16px}p{color:#28293d}.code-access a{display:block;margin:0 auto;width:240px;height:20px;color:#fff;background:#0c6dff;font-weight:500;padding:10px 24px;border-radius:100px;text-decoration:none;position:relative}.code-access a span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%}.for-more{margin-top:40px}.for-more a{color:#0c6dff;text-underline-offset:3px}@media(max-width:767px){.header{padding:16px}.tenant table{margin:0 auto!important;float:none!important}.email-template{width:100%}.content{padding:32px 12px}.tenant{margin-bottom:20px;width:33.333%}.clearfix::after{content:"";display:table;clear:both}}&lt;/style&gt;&lt;style&gt;.fredoka-font{font-family:sans-serif}.center-text{text-align:center}.lato-font{font-family:Lato}.large-font{font-size:28px;line-height:36px}.regular-font{font-size:20px;line-height:24px}.small-font{font-size:14px;line-height:20px}.email-template{width:700px;background:#fff}.header{background:#0e2c6c;padding:32px 64px}.content{padding:32px 69.5px}.content .h2{color:#0e2c6c;font-size:28px;font-family:sans-serif}.message{margin:40px 0 24px;color:#28293d}.address{padding:8px 24px;background:#f7f7fd;border-radius:8px;width:257px;height:fit-content;color:#28293d;text-align:center;margin:0 auto;font-size:22px;position:relative}.address p{margin:0;line-height:44px}.rest-assured{margin:24px 0 40px;color:#28293d;line-height:40px}.code-access{padding:32px;background:#f7f7fd;border-radius:8px}.group-tenant{text-align:center}.tenant{display:inline-block;margin:0 17px}.code{margin:16px 0;color:#0c6dff;margin-bottom:16px}p{color:#28293d}.code-access a{display:block;margin:0 auto;width:240px;height:20px;color:#fff;background:#0c6dff;font-weight:500;padding:10px 24px;border-radius:100px;text-decoration:none;position:relative}.code-access a span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%}.for-more{margin-top:40px}.for-more a{color:#0c6dff;text-underline-offset:3px}@media(max-width:767px){.header{padding:16px}.tenant table{margin:0 auto!important;float:none!important}.email-template{width:100%}.content{padding:32px 12px}.tenant{margin-bottom:20px;width:33.333%}.clearfix::after{content:"";display:table;clear:both}}&lt;/style&gt;&lt;/head&gt;&lt;body style="background:#f7f7fd"&gt;&lt;script&gt;function handleImageError(){var e=document.getElementById("avatar");document.getElementById("avatarImage").style.display="none";var a=e.getAttribute("data-name").charAt(0).toUpperCase();e.innerHTML=a}&lt;/script&gt;&lt;div class="email-template"&gt;&lt;div class="header"&gt;&lt;img src="https://bucket-totira-publicresources-development.s3.amazonaws.com/icons/logoIcon.png" alt="" width="125px" height="32px"&gt;&lt;/div&gt;&lt;div class="content"&gt;&lt;div class="fredoka-font large-font h2"&gt;A group of clients are interested in your property&lt;/div&gt;&lt;div class="message lato-font regular-font"&gt;&lt;span&gt;Hi,&lt;/span&gt;&lt;p&gt;We're Totira, your go-to connection for top-notch tenants.&lt;/p&gt;&lt;p&gt;Our mission is to seamlessly connect agents and landlords with the very best tenant candidates. With our extensive data aggregation and screening processes, we ensure that our tenant profiles exceed the highest standards.&lt;/p&gt;&lt;p&gt;A group of qualified clients is showing strong interest in your property on:&lt;/p&gt;&lt;/div&gt;&lt;div class="address fredoka-font regular-font"&gt;[PropertyStreetAddress]&lt;/div&gt;&lt;div class="rest-assured lato-font regular-font"&gt;Rest assured, our client was screened in these areas :&lt;ul&gt;&lt;li&gt;Identity&lt;/li&gt;&lt;li&gt;Employment &amp; Income&lt;/li&gt;&lt;li&gt;Credit Score&lt;/li&gt;&lt;li&gt;Background&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class="code-access"&gt;&lt;div class="group-name" style="border-radius:16px;background:var(--totgreys-727385,#727385);color:#fff;text-align:center;width:125px;height:24px;font-family:Lato;font-size:10px;font-style:normal;font-weight:700;line-height:24px;letter-spacing:.5px;text-transform:uppercase;margin:0 auto 32px"&gt;Group ApplicatIon&lt;/div&gt;&lt;table&gt;&lt;tr&gt;[GroupApplicants]&lt;/tr&gt;&lt;/table&gt;&lt;p class="center-text lato-font regular-font"&gt;[customizeMessage]&lt;/p&gt;&lt;p class="lato-font regular-font center-text"&gt;To securely access this Group Application profile, simply enter your email and use this exclusive access code:&lt;/p&gt;&lt;div class="code fredoka-font large-font center-text"&gt;[AccessCode]&lt;/div&gt;&lt;a href="[Link]" class="lato-font small-font center-text"&gt;Access Group Application Profile&lt;/a&gt;&lt;/div&gt;&lt;div class="for-more lato-font regular-font"&gt;&lt;p&gt;For more information, visit the&lt;a href="https://totira.com"&gt; Totira website &lt;/a&gt;and discover how we can revolutionize your tenant selection process.&lt;/p&gt;&lt;p&gt;Don't miss out on this exclusive opportunity for your property.&lt;/p&gt;&lt;p&gt;&lt;span&gt;Best Regards,&lt;/span&gt;&lt;br&gt;&lt;span&gt;The Totira Team&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</value>
+  </data>
+  <data name="InviteCoApplicantTemplate" xml:space="preserve">
+    <value>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;title&gt;&lt;/title&gt;&lt;link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet"&gt;&lt;style&gt;body{font-family:Lato,sans-serif;margin:0}.btn{background:#0c6dff;border-radius:100px;color:#fff;width:191px;height:40px;border:none}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;table width="100%" style="background-color:#0e2c6c"&gt;&lt;tr&gt;&lt;td align="left" style="padding:32px 0 32px 64px"&gt;&lt;img src="https://bucket-totira-publicresources-development.s3.amazonaws.com/icons/logoIcon.png" alt="Logo" width="124" height="32"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table width="100%" bgcolor="#fff" style="padding:48px 70px 32px 70px"&gt;&lt;tr&gt;&lt;td style="font-size:18px;color:#28293d"&gt;&lt;p&gt;[CosignerName],&lt;/p&gt;&lt;p&gt;You where invited by &lt;b&gt;[TenantName]&lt;/b&gt; to join a Group Application Profile as a &lt;b&gt;[Role]&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;Please join and complete your profile in order to complete the verification process and start applying to properties.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align="center" style="padding:40px 0 0 0"&gt;&lt;a href="[Link]" centered&gt;&lt;button type="button" class="btn"&gt;Join Group Application&lt;/button&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table style="background-color:#f7f7fd;padding:40px 70px 113px 70px;width:100%"&gt;&lt;tr&gt;&lt;td align="center" style="font-size:14px"&gt;&lt;p style="width:495px"&gt;Totira is a digital platform that helps tenants to create a verified profile and apply to multiple properties.&lt;/p&gt;&lt;p style="width:495px"&gt;We want to reinvent how everyone rents. We showcase the best aspects of your profile by the use of technology to fast pace your rental approval process.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</value>
+  </data>
+  <data name="ProfileSharingTemplate" xml:space="preserve">
+    <value>&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;&lt;link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"&gt;&lt;title&gt;mail&lt;/title&gt;&lt;style&gt;body{font-family:sans-serif}.fredoka-font{font-family:sans-serif}.center-text{text-align:center}.lato-font{font-family:sans-serif}.large-font{font-size:28px;line-height:36px}.regular-font{font-size:20px;line-height:24px}.small-font{font-size:14px;line-height:20px}.email-template{width:700px;margin:97px auto;background:#fff}.header{background:#0e2c6c;padding:32px 64px}.content{padding:32px 69.5px}.content .h2{color:#0e2c6c;font-size:28px;font-family:sans-serif}.message{margin:40px 0 16px;color:#28293d}.address{padding:8px 24px;background:#f7f7fd;border-radius:8px;width:257px;height:44px;color:#28293d;text-align:center;margin:0 auto;font-size:22px;position:relative}.address p{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;width:100%;line-height:44px}.rest-assured{margin:16px 0 40px;color:#28293d;line-height:40px}.rest-assured ul{margin:16px 0}.code-access{padding:32px;background:#f7f7fd;border-radius:8px}.code{margin:16px 0;color:#0c6dff;margin-bottom:16px}p{color:#28293d}.code-access .btn-style{display:block;margin:0 auto;width:179px;height:40px;color:#fff;background:#0c6dff;font-weight:500;border-radius:100px;text-decoration:none;position:relative;line-height:40px}.code-access a span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%}.for-more{margin-top:40px}.for-more a{color:#0c6dff;text-underline-offset:3px}p{margin:16px 0}&lt;/style&gt;&lt;/head&gt;&lt;body style="background:#f7f7fd"&gt;&lt;script&gt;function handleImageError(){var e=document.getElementById("avatar");document.getElementById("avatarImage").style.display="none";var a=e.getAttribute("data-name").charAt(0).toUpperCase();e.innerHTML=a}&lt;/script&gt;&lt;div class="email-template"&gt;&lt;div class="header"&gt;&lt;img src="https://bucket-totira-publicresources-development.s3.amazonaws.com/icons/logoIcon.png" alt="" width="125px" height="32px"&gt;&lt;/div&gt;&lt;div class="content"&gt;&lt;div class="fredoka-font large-font h2"&gt;Our client is interested in your property&lt;/div&gt;&lt;div class="message lato-font regular-font"&gt;&lt;span&gt;Hi,&lt;/span&gt;&lt;p&gt;We're Totira, your go-to connection for top-notch tenants.&lt;/p&gt;&lt;p&gt;Our mission is to seamlessly connect agents and landlords with the very best tenant candidates. With our extensive data aggregation and screening processes, we ensure that our tenant profiles exceed the highest standards. One of our highly qualified clients is showing strong interest in your property on:&lt;/p&gt;&lt;/div&gt;&lt;div class="address fredoka-font regular-font"&gt;&lt;p&gt;[PropertyStreetAddress]&lt;/p&gt;&lt;/div&gt;&lt;div class="rest-assured lato-font regular-font"&gt;Rest assured, our client was screened in these areas :&lt;ul&gt;&lt;li&gt;Identity&lt;/li&gt;&lt;li&gt;Employment &amp; Income&lt;/li&gt;&lt;li&gt;Credit Score&lt;/li&gt;&lt;li&gt;Background&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class="code-access"&gt;&lt;table cellpadding="0" cellspacing="0" style="width:120px;height:120px;background-color:#0e2c6c;border-radius:50%;color:#fff;text-align:center;vertical-align:middle;margin:0 auto"&gt;&lt;tbody style="background:url(https://bucket-totira-publicresources-development.s3.amazonaws.com/icons/verifiedIcon.png) no-repeat;background-size:60px 60px;background-position:115% 128%"&gt;&lt;tr&gt;&lt;td style="vertical-align:middle;font-size:48px;line-height:48px"&gt;[FirstCharFromName]&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p class="center-text lato-font regular-font"&gt;[customizeMessage] [TenantName].&lt;/p&gt;&lt;p class="lato-font regular-font center-text"&gt;To securely access [TenantFirstName]'s profile, simply enter your email and use this exclusive access code:&lt;/p&gt;&lt;div class="code fredoka-font large-font center-text"&gt;[AccessCode]&lt;/div&gt;&lt;a href="[Link]" class="lato-font small-font center-text btn-style"&gt;&lt;span&gt;Access [TenantFirstName]’s Profile&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="for-more lato-font regular-font"&gt;&lt;p&gt;For more information, visit the&lt;a href="https://totira.com"&gt; Totira Website &lt;/a&gt;and discover how we can revolutionize your tenant selection process.&lt;/p&gt;&lt;p&gt;Don't miss out on this exclusive opportunity for your property.&lt;/p&gt;&lt;p&gt;&lt;span&gt;Best Regards,&lt;/span&gt;&lt;br&gt;&lt;span&gt;The Totira Team&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</value>
+  </data>
+  <data name="ReferralAcquaintanceTemplate" xml:space="preserve">
+    <value>&lt;html lang="en"&gt; &lt;head&gt; &lt;link rel="preconnect" href="https://fonts.googleapis.com"/&gt; &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/&gt; &lt;link href="https://fonts.googleapis.com/css2?family=Fredoka&amp;family=Lato&amp;display=swap" rel="stylesheet"/&gt; &lt;style type="text/css"&gt; body{font-family: Lato, sans-serif; color: #000;}&lt;/style&gt; &lt;/head&gt; &lt;body style="font-size: 20px; background: #f5f5f5;"&gt; &lt;div style="margin-top: 1%; margin-right: 10%; margin-left: 10%; padding-top: 5%;"&gt; &lt;div style="background: #fff; padding: 10px;"&gt; &lt;div&gt; &lt;div&gt; &lt;div style="margin-bottom: 40px; padding-top: 32px; text-align: center;"&gt; &lt;h4&gt;&lt;img src="https://bucket-totira-publicresources-development.s3.amazonaws.com/totiraIcon.png" alt="Logo" loading="eager"/&gt;&lt;/h4&gt; &lt;/div&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt; Dear &lt;b&gt;[ContactName]&lt;/b&gt;,&lt;br/&gt; I hope this email finds you well. I am reaching out to you because &lt;b&gt;[TenantName]&lt;/b&gt; has listed you as a part of his family on our real estate platform, and we would like to request your feedback on him. We understand that your time is valuable, so we have created a brief survey that should only take a few minutes to complete. Your honest feedback will help us to ensure that our platform provides accurate and reliable information to potential landlords and property managers. &lt;/p&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt;Please click on the link below to access the survey :&lt;/p&gt;&lt;div style="margin-left: 24px;"&gt; &lt;a href="[Link]" style="display: table; position: relative; text-align: center; text-decoration: none; width: 165px; height: 40px; background: #0c6dff; border-radius: 100px; color: #fff; font-size: 14px;"&gt; &lt;div style="display: table-cell; vertical-align: middle; position: relative;"&gt;Click Here&lt;/div&gt;&lt;/a&gt; &lt;/div&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt;Thank you for your time and consideration.&lt;/p&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt;We appreciate your feedback and look forward to working with you in the future.&lt;/p&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt; Best regards,&lt;br/&gt; Totira&amp;apos;s Team &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style="margin: 1%;"&gt; &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</value>
+  </data>
+  <data name="ReferralLandlordTemplate" xml:space="preserve">
+    <value>&lt;html lang="en"&gt; &lt;head&gt;&lt;/head&gt;&lt;style type="text/css"&gt; body{font-family: Lato, sans-serif; color: #000;}&lt;/style&gt; &lt;body style="font-size: 20px; background: #f5f5f5;"&gt; &lt;div style="margin-top: 1%; margin-right: 10%; margin-left: 10%; padding-top: 5%;"&gt; &lt;div style="background: #fff; padding: 10px;"&gt; &lt;div&gt; &lt;div&gt; &lt;div style="margin-bottom: 40px; padding-top: 32px; text-align: center;"&gt; &lt;h4&gt;&lt;img src="https://bucket-totira-publicresources-development.s3.amazonaws.com/totiraIcon.png" alt="Logo" loading="eager"/&gt;&lt;/h4&gt; &lt;/div&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt; Dear &lt;b&gt;[landlordName]&lt;/b&gt;,&lt;br/&gt; I hope this email finds you well. I am reaching out to you because &lt;b&gt;[tenantName]&lt;/b&gt; has listed you as a previous landlord on our real estate platform, and we would like to request your feedback on their tenancy. We understand that your time is valuable, so we have created a brief survey that should only take a few minutes to complete. Your honest feedback will help us to ensure that our platform provides accurate and reliable information to potential landlords and property managers. &lt;/p&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt;Please click on the link below to access the survey :&lt;/p&gt;&lt;div style="margin-left: 24px;"&gt; &lt;a href="[link]" style="display: table; position: relative; text-align: center; text-decoration: none; width: 165px; height: 40px; background: #0c6dff; border-radius: 100px; color: #fff; font-size: 14px;"&gt; &lt;div style="display: table-cell; vertical-align: middle; position: relative;"&gt;Click Here&lt;/div&gt;&lt;/a&gt; &lt;/div&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt;Thank you for your time and consideration.&lt;/p&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt;We appreciate your feedback and look forward to working with you in the future.&lt;/p&gt;&lt;p style="padding-left: 24px; padding-right: 24px;"&gt; Best regards,&lt;br/&gt; Totira’s Team &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style="margin: 1%;"&gt; &lt;div style="margin: 20px; text-align: center;"&gt; &lt;div style="padding: 10px;"&gt;&lt;img src="https://bucket-totira-publicresources-development.s3.amazonaws.com/totiraIcon.png" alt="Logo" loading="eager"/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</value>
+  </data>
+  <data name="VerifiedProfile" xml:space="preserve">
+    <value>&lt;html lang="en"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;&lt;title&gt;mail&lt;/title&gt;&lt;style&gt;body,html{height:100%;margin:0;display:flex;align-items:center;justify-content:center;font-family:Arial}.centered-text{text-align:center}p.name{color:#0e2c6c;font-size:28px}.pb-48{padding-bottom:48px}.mt-15{margin-top:15px}.code{color:#0c6dff}.centered-text div{font-size:20px;color:#28293d;padding-bottom:16px}.btn{background:#0c6dff;border-radius:100px;color:#fff;width:165px;height:40px;border:none;cursor:pointer}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div class="centered-text"&gt;&lt;img src="https://bucket-totira-publicresources-development.s3.amazonaws.com/totiraIcon.png" alt="logo" class="img-fluid pb-48"&gt;&lt;p class="name"&gt;Your profile is ready to review&lt;/p&gt;&lt;div&gt;&lt;p class="mt-15"&gt;We've completed the screening of your&lt;br&gt;information. Please access your profile to&lt;br&gt;check your results.&lt;/p&gt;&lt;/div&gt;&lt;a href="[Link]"&gt;&lt;button type="button" class="btn"&gt;Go to Profile&lt;/button&gt;&lt;/a&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</value>
+    <comment>Sending email template for profile verification</comment>
+  </data>
+</root>
