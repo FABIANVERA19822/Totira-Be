@@ -1,0 +1,33 @@
+#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["services/Worker.Thirdparty/src/Totira.Services.Thirdparty.Worker.Outbox/Totira.Services.Thirdparty.Worker.Outbox.csproj", "services/Worker.Thirdparty/src/Totira.Services.Thirdparty.Worker.Outbox/"]
+COPY ["common/Totira.Business.ThirdPartyIntegrationService/Totira.Business.ThirdPartyIntegrationService.csproj", "common/Totira.Business.ThirdPartyIntegrationService/"]
+COPY ["support/Totira.Support.Api/src/Totira.Support.Api/Totira.Support.Api.csproj", "support/Totira.Support.Api/src/Totira.Support.Api/"]
+COPY ["support/Totira.Support.Resilience/src/Totira.Support.Resilience/Totira.Support.Resilience.csproj", "support/Totira.Support.Resilience/src/Totira.Support.Resilience/"]
+COPY ["support/Totira.Support.Application/src/Totira.Support.Application/Totira.Support.Application.csproj", "support/Totira.Support.Application/src/Totira.Support.Application/"]
+COPY ["support/Totira.Support.EventServiceBus/src/Totira.Support.EventServiceBus/Totira.Support.EventServiceBus.csproj", "support/Totira.Support.EventServiceBus/src/Totira.Support.EventServiceBus/"]
+COPY ["support/Totira.Support.Persistance.Mongo/scr/Totira.Support.Persistance.Mongo/Totira.Support.Persistance.Mongo.csproj", "support/Totira.Support.Persistance.Mongo/scr/Totira.Support.Persistance.Mongo/"]
+COPY ["support/Totira.Support.Persistance/src/Totira.Support.Persistance/Totira.Support.Persistance.csproj", "support/Totira.Support.Persistance/src/Totira.Support.Persistance/"]
+COPY ["support/Totira.Support.ThirdPartyIntegration/Totira.Support.ThirdPartyIntegration.csproj", "support/Totira.Support.ThirdPartyIntegration/"]
+COPY ["support/Totira.Support.TransactionalOutbox/src/Totira.Support.TransactionalOutbox/Totira.Support.TransactionalOutbox.csproj", "support/Totira.Support.TransactionalOutbox/src/Totira.Support.TransactionalOutbox/"]
+COPY ["common/Totira.Business.ThirdPartyIntegrationService.Domain/Totira.Business.ThirdPartyIntegrationService.Domain.csproj", "common/Totira.Business.ThirdPartyIntegrationService.Domain/"]
+COPY ["support/Totira.Support.CommonLibrary/src/Totira.Support.CommonLibrary/Totira.Support.CommonLibrary.csproj", "support/Totira.Support.CommonLibrary/src/Totira.Support.CommonLibrary/"]
+COPY ["support/Totira.Support.EventServiceBus.RabittMQ/src/Totira.Support.EventServiceBus.RabittMQ/Totira.Support.EventServiceBus.RabittMQ.csproj", "support/Totira.Support.EventServiceBus.RabittMQ/src/Totira.Support.EventServiceBus.RabittMQ/"]
+COPY ["support/Totira.Support.Resilience.Polly/src/Totira.Support.Resilience.Polly/Totira.Support.Resilience.Polly.csproj", "support/Totira.Support.Resilience.Polly/src/Totira.Support.Resilience.Polly/"]
+RUN dotnet restore "services/Worker.Thirdparty/src/Totira.Services.Thirdparty.Worker.Outbox/Totira.Services.Thirdparty.Worker.Outbox.csproj"
+COPY . .
+WORKDIR "/src/services/Worker.Thirdparty/src/Totira.Services.Thirdparty.Worker.Outbox"
+RUN dotnet build "Totira.Services.Thirdparty.Worker.Outbox.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Totira.Services.Thirdparty.Worker.Outbox.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Totira.Services.Thirdparty.Worker.Outbox.dll"] 

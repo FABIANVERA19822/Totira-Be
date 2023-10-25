@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Totira.Support.CommonLibrary\src\Totira.Support.CommonLibrary\Totira.Support.CommonLibrary.csproj" />
+    <ProjectReference Include="..\Totira.Support.Persistance.Mongo\scr\Totira.Support.Persistance.Mongo\Totira.Support.Persistance.Mongo.csproj" />
+    <ProjectReference Include="..\Totira.Support.Persistance\src\Totira.Support.Persistance\Totira.Support.Persistance.csproj" />
+  </ItemGroup>
+
+</Project>

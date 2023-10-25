@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8a828bfa-2683-4ddd-9346-d8e194f6bc04</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\common\Totira.Bussiness.UserService\src\Totira.Bussiness.UserService\Totira.Bussiness.UserService.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Api\src\Totira.Support.Api\Totira.Support.Api.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Application\src\Totira.Support.Application\Totira.Support.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.CommonLibrary\src\Totira.Support.CommonLibrary\Totira.Support.CommonLibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.EventServiceBus.RabittMQ\src\Totira.Support.EventServiceBus.RabittMQ\Totira.Support.EventServiceBus.RabittMQ.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Otp\Totira.Support.Otp.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Persistance.Mongo\scr\Totira.Support.Persistance.Mongo\Totira.Support.Persistance.Mongo.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Resilience.Polly\src\Totira.Support.Resilience.Polly\Totira.Support.Resilience.Polly.csproj" />
+  </ItemGroup>
+
+</Project>

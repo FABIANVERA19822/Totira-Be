@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="GoogleMaps.LocationServices" Version="1.2.0.5" />
+    <PackageReference Include="LanguageExt.Core" Version="4.4.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Application\src\Totira.Support.Application\Totira.Support.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.EventServiceBus\src\Totira.Support.EventServiceBus\Totira.Support.EventServiceBus.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.MLSRetsLibrary\Totira.Support.MLSRetsLibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Persistance.Mongo\scr\Totira.Support.Persistance.Mongo\Totira.Support.Persistance.Mongo.csproj" />
+    <ProjectReference Include="..\..\..\Totira.Bussiness.PropertiesService.Domain\src\Totira.Bussiness.PropertiesService.Domain\Totira.Bussiness.PropertiesService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.CommonLibrary\src\Totira.Support.CommonLibrary\Totira.Support.CommonLibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Api\src\Totira.Support.Api\Totira.Support.Api.csproj" />
+  </ItemGroup>
+
+</Project>

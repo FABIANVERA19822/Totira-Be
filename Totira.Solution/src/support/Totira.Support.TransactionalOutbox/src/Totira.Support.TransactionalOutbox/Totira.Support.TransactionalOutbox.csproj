@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Totira.Support.EventServiceBus\src\Totira.Support.EventServiceBus\Totira.Support.EventServiceBus.csproj" />
+    <ProjectReference Include="..\..\..\Totira.Support.Persistance\src\Totira.Support.Persistance\Totira.Support.Persistance.csproj" />
+    <ProjectReference Include="..\..\..\Totira.Support.Application\src\Totira.Support.Application\Totira.Support.Application.csproj" />
+  </ItemGroup>
+
+</Project>

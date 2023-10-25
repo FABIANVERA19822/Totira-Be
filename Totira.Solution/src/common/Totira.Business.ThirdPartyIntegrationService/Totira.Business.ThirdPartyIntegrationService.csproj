@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Queries\GoogleLocationServices\" />
+    <Folder Include="Queries\GoogleLocationServices\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\support\Totira.Support.Api\src\Totira.Support.Api\Totira.Support.Api.csproj" />
+    <ProjectReference Include="..\..\support\Totira.Support.Application\src\Totira.Support.Application\Totira.Support.Application.csproj" />
+    <ProjectReference Include="..\..\support\Totira.Support.EventServiceBus\src\Totira.Support.EventServiceBus\Totira.Support.EventServiceBus.csproj" />
+    <ProjectReference Include="..\..\support\Totira.Support.Persistance.Mongo\scr\Totira.Support.Persistance.Mongo\Totira.Support.Persistance.Mongo.csproj" />
+    <ProjectReference Include="..\..\support\Totira.Support.ThirdPartyIntegration\Totira.Support.ThirdPartyIntegration.csproj" />
+    <ProjectReference Include="..\..\support\Totira.Support.TransactionalOutbox\src\Totira.Support.TransactionalOutbox\Totira.Support.TransactionalOutbox.csproj" />
+    <ProjectReference Include="..\Totira.Business.ThirdPartyIntegrationService.Domain\Totira.Business.ThirdPartyIntegrationService.Domain.csproj" />
+    <ProjectReference Include="..\..\support\Totira.Support.CommonLibrary\src\Totira.Support.CommonLibrary\Totira.Support.CommonLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Handlers\Queries\GoogleLocationServices\" />
+    <None Remove="Queries\GoogleLocationServices\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LanguageExt.Core" Version="4.4.3" />
+  </ItemGroup>
+</Project>

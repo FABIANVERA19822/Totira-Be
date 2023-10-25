@@ -1,0 +1,160 @@
+version: '3.5'
+
+services:
+  totira.services.rootservice:
+    image: ${DOCKER_REGISTRY-}totiraservicesrootservice
+    build:
+      context: .
+      dockerfile: services/mainServices/src/Totira.Services.RootService/Dockerfile
+    depends_on:     
+      rabbitmq:
+       condition: service_healthy
+    ports:
+      - "5000:80"
+    environment:
+     - EventBus__RabbitMQ__HostName=rabbitmq
+     - EventBus__RabbitMQ__Port=5672     
+     
+  totira.services.userservice:
+    image: ${DOCKER_REGISTRY-}totiraservicesuserservice
+    build:
+      context: .
+      dockerfile: services/Totira.Services.UserService/src/Totira.Services.UserService/Dockerfile
+    depends_on:     
+      rabbitmq:
+       condition: service_healthy
+    environment:
+     - EventBus__RabbitMQ__HostName=rabbitmq
+     - EventBus__RabbitMQ__Port=5672
+
+  totira.services.propertiesservice:
+    image: ${DOCKER_REGISTRY-}totiraservicespropertiesservice
+    build:
+      context: .
+      dockerfile: services/Totira.Services.PropertiesService/src/Totira.Services.PropertiesService/Dockerfile
+    depends_on:     
+      rabbitmq:
+       condition: service_healthy
+    environment:
+     - EventBus__RabbitMQ__HostName=rabbitmq
+     - EventBus__RabbitMQ__Port=5672
+
+  totira.services.thirdpartyintegrationservice:
+    image: ${DOCKER_REGISTRY-}totiraservicesthirdpartyintegrationservice
+    build:
+      context: .
+      dockerfile: services/Totira.Services.ThirdPartyIntegrationService/Dockerfile
+    depends_on:     
+      rabbitmq:
+       condition: service_healthy
+    environment:
+     - EventBus__RabbitMQ__HostName=rabbitmq
+     - EventBus__RabbitMQ__Port=5672
+     
+  totira.services.tenantservice:
+    image: ${DOCKER_REGISTRY-}totiraservicestenantservice
+    build:
+      context: .
+      dockerfile: services/Totira.Services.TenantService/src/Totira.Services.TenantService/Dockerfile
+    depends_on:     
+      rabbitmq:
+       condition: service_healthy
+    environment:
+     - EventBus__RabbitMQ__HostName=rabbitmq
+     - EventBus__RabbitMQ__Port=5672
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - 4566:4566
+    environment:
+      - SERVICES=sqs
+      - GATEWAY_LISTEN=0.0.0.0:4566
+    volumes:
+      - ./localstack-setup/:/etc/localstack/init/ready.d/  # ready hook
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    hostname: "rabbitmq"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    healthcheck:
+        test: rabbitmq-diagnostics -q ping
+        interval: 30s
+        timeout: 30s
+        retries: 3
+    labels:
+      NAME: "rabbitmq"
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
+    command: ["mongod", "--port", "27017"]
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 7081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'    
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  totira.services.user.worker.outbox:
+    image: ${DOCKER_REGISTRY-}totiraservicesuserworkeroutbox
+    build:
+      context: .
+      dockerfile: services/Worker.Outbox/src/Totira.Services.User.Worker.Outbox/Dockerfile
+    depends_on:     
+      rabbitmq:
+       condition: service_healthy
+    environment:
+     - EventBus__RabbitMQ__HostName=rabbitmq
+     - EventBus__RabbitMQ__Port=5672
+
+  totira.services.thirdparty.worker.outbox:
+    image: ${DOCKER_REGISTRY-}totiraservicethirdpartyworkeroutbox
+    build:
+      context: .
+      dockerfile: services/Worker.ThirdParty/src/Totira.Services.Thirdparty.Worker.Outbox/Dockerfile
+    depends_on:     
+      rabbitmq:
+       condition: service_healthy
+    environment:
+     - EventBus__RabbitMQ__HostName=rabbitmq
+     - EventBus__RabbitMQ__Port=5672
+     - AWS_ACCESS_KEY_ID=any
+     - AWS_SECRET_ACCESS_KEY=any
+     - AWS_REGION=us-east-1
+
+  #ngrok:
+  #  image: ngrok/ngrok:latest
+  #  restart: unless-stopped
+  #  command:
+  #    - "start"
+  #    - "--all"
+  #    - "--config"
+  #    - "/etc/ngrok.yml"
+  #  volumes:
+  #    - ./ngrok.yml:/etc/ngrok.yml
+  #  ports:
+  #    - 9091:80
