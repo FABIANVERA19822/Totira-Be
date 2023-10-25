@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Application\src\Totira.Support.Application\Totira.Support.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Persistance.PostgreSQL\Totira.Support.Persistance.PostgreSQL.csproj" />
+    <ProjectReference Include="..\..\..\Totira.Business.TenantService.Domain\src\Totira.Business.TenantService.Domain\Totira.Business.TenantService.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="Events\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Handlers\Commands\" />
+    <Folder Include="Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

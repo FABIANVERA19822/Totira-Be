@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\common\Totira.Business.ThirdPartyIntegrationService\Totira.Business.ThirdPartyIntegrationService.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Api\src\Totira.Support.Api\Totira.Support.Api.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.CommonLibrary\src\Totira.Support.CommonLibrary\Totira.Support.CommonLibrary.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.EventServiceBus.RabittMQ\src\Totira.Support.EventServiceBus.RabittMQ\Totira.Support.EventServiceBus.RabittMQ.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.Resilience.Polly\src\Totira.Support.Resilience.Polly\Totira.Support.Resilience.Polly.csproj" />
+    <ProjectReference Include="..\..\..\..\support\Totira.Support.TransactionalOutbox\src\Totira.Support.TransactionalOutbox\Totira.Support.TransactionalOutbox.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Bll\Commands\" />
+    <Folder Include="Bll\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Bll\EmailTemplates\EmailTemplateResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EmailTemplateResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Bll\EmailTemplates\EmailTemplateResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailTemplateResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+#name: PullRequest_totira
+#on:
+#  pull_request:
+#    types:
+#      - opened
+#      - synchronize
+
+
+#jobs:
+#  test-and-code-analyzer:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Setup .NET
+#        uses: actions/setup-dotnet@v2
+#        with:
+#         dotnet-version: '7.0'
+
+#     - name: Test 
+#        run: dotnet run test
+
+#      - name: Install Roslyn Analyzers
+#        run: dotnet tool install --global Microsoft.CodeAnalysis.FxCopAnalyzers --version 3.3.1
+
+#      - name: Run Code Analysis
+#        run: dotnet build --configuration Release /p:ReportAnalyzedFiles=true
+
+#      - name: Upload Analysis Results
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: analysis-results
+#          path: |
+#            **/bin/Release/netcoreapp3.1/*.xml
+# 
